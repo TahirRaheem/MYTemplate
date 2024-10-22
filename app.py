@@ -115,13 +115,10 @@ if st.button("Create Portfolio"):
                                       .replace("{{SKILLS}}", skills_list)\
                                       .replace("{{PROJECTS}}", projects_list)
 
-        # Create a downloadable HTML file
-        portfolio_filename = f'{name}_portfolio.html'
-        with open(portfolio_filename, 'w') as portfolio_file:
-            portfolio_file.write(filled_content)
-
-        # Display download link for the generated portfolio
-        st.success(f"Portfolio created successfully!")
-        st.markdown(f"[Download your portfolio](./{portfolio_filename})", unsafe_allow_html=True)
+        # Display the generated portfolio content directly in the Streamlit app
+        st.markdown(filled_content, unsafe_allow_html=True)
+        
+        # Inform the user of successful creation
+        st.success("Portfolio created successfully!")
     else:
         st.error("Please fill in all fields!")
